@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+	id 'application'
+}
+
+java {
+	sourceCompatibility = '11'
+
+	// Se necessário, descomentar para descarregar e instalar o JDK certo:
+    // toolchain {
+    //     languageVersion = JavaLanguageVersion.of(11)
+    // }
+}
+
+application {
+	mainClass.set(project.hasProperty("mainClass") ? project.getProperty("mainClass") : null)
+}
