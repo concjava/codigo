@@ -29,7 +29,7 @@ public class GameBusyWaitLock {
     private final int max;
 
     public void enter(String name) {
-        l.unlock();
+        l.lock();
         while (players.size() >= max) 
             ; 
         players.put(name, new Player());
@@ -37,7 +37,7 @@ public class GameBusyWaitLock {
     }
 
     public void leave(String name) {
-        l.unlock();
+        l.lock();
         players.remove(name);  
         l.unlock();
     }
